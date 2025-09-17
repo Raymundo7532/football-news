@@ -56,7 +56,7 @@ def show_xml_by_id(requests, news_id):
 
 def show_json_by_id(requests, news_id):
     try:
-        news_item = News.objects.filter(pk=news_id)
+        news_item = News.objects.get(pk=news_id)
         json_data = serializers.serialize("json", [news_item])
         return HttpResponse(json_data, content_type="application/json")
     except News.DoesNotExist:
