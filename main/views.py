@@ -19,7 +19,7 @@ def show_main(request):
         news_list = News.objects.filter(user=request.user)
     context = {
         'npm' : '2406404642',
-        'name': 'Raymundo Rafaelito Maryos Von Woloblo',
+        'name': request.user.username,
         'class': 'PBP B',
         'news_list' : news_list,
         'last_login': request.COOKIES.get('last_login', 'Never'),
